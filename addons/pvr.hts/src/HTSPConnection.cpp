@@ -60,6 +60,7 @@ CHTSPConnection::~CHTSPConnection()
   for (deque<htsmsg_t*>::iterator it = m_queue.begin(); it != m_queue.end();)
     delete *(it++);
   m_queue.clear();
+  m_transcodingCaps.clear();
 }
 
 bool CHTSPConnection::Connect()
@@ -123,6 +124,7 @@ void CHTSPConnection::Close()
 {
   CLockObject lock(m_mutex);
   m_bIsConnected = false;
+  m_transcodingCaps.clear();
 
   if(m_socket && m_socket->IsOpen())
     m_socket->Close();
