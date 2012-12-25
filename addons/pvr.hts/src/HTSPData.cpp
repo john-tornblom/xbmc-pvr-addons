@@ -205,6 +205,13 @@ bool CHTSPData::GetBackendTime(time_t *utcTime, int *gmtOffset)
   return true;
 }
 
+
+CodecVector CHTSPData::GetTranscodingCodecs(void)
+{
+  CodecVector v;
+  return v;
+}
+
 unsigned int CHTSPData::GetNumChannels()
 {
   return GetChannels().size();
